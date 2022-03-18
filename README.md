@@ -2,9 +2,9 @@
 
 1 Description
 
-In this assignment, you will be using Google’s open-source TensorFlow machine learning tool to implement some deep learning architectures that will be used to classify sequences of raw text (this time, no
+In this assignment, you will be using Google’s open-source TensorFlow machine learning tool to implement some deep learning architectures that will be used to classify sequences of raw text (this time, no
 pre-processing using dictionaries and words. We will be operating on raw characters!). Since deep learning
-is computationally expensive, it is strongly recommended that you use one of Amazon’s deep learning machines to do this assignment (see below). The small learning problems we’ll consider will take about 10-20
+is computationally expensive, it is strongly recommended that you use one of Amazon’s deep learning machines to do this assignment (see below). The small learning problems we’ll consider will take about 10-20
 minutes max using one of these machines, but might take 10 times as long (or more) using a laptop. Plus,
 TensorFlow can be a bit of a pain to install on your laptop, so using Amazon is just plain easier. The only
 situation in which you might consider using your own hardware is if you’ve got a tricked out laptop/desktop
@@ -100,7 +100,7 @@ you should go ahead and halve the size of the hidden state to compensate. That i
 hidden state be 1,000 activations, you should make it consist of 500 activations.
 Once you have made these modifications, run the resulting code for the full 10,000 iterations, and copy
 and paste the output for the last 20 iterations, plus the message that you added in Task 1, into your turnin
-document. I personally found that adding time-warping in this way increased the average number of correctly classified documents per batch to nearly 90 out of 100. I think that this accuracy is quite impressive;
+document. I personally found that adding time-warping in this way increased the average number of correctly classified documents per batch to nearly 90 out of 100. I think that this accuracy is quite impressive;
 perhaps as good as a human could do.
 
 2.4 Task 3: Implementing a Feed-Forward Network
@@ -109,10 +109,10 @@ Now you will change the code so that it no longer implements an RNN, but instead
 a simple feed-forward network with one hidden layer. For the RNN, our line of text representation was
 a matrix (a sequence of vectors, where each vector was a one-hot encoding of a character). Now, our
 text representation will be a single vector, where each vector has all of the vectors encoding each of the
-characters, appended end-on-end. Note that I’ve already supplied you with a function that supplies minibatches of data in this format, so you can just use my function to create batches of training data for learning.
+characters, appended end-on-end. Note that I’ve already supplied you with a function that supplies minibatches of data in this format, so you can just use my function to create batches of training data for learning.
 All you need to do is to figure out how to modify the network to make use of this function.
 Once you have made these modifications, again run the resulting code for the full 10,000 iterations, and
-copy and paste the output for the last 20 iterations, plus the message that you added, into your turnin document. I found that this feed-forward network has even higher-accuracy than the RNN with time-warping.
+copy and paste the output for the last 20 iterations, plus the message that you added, into your turnin document. I found that this feed-forward network has even higher-accuracy than the RNN with time-warping.
 Probably better than a human could do!
 The cost of the higher accuracy is that you cant possibly use the learned network to classify a sequence
 that is longer than the width of the input layer that you trained. The RNN, in contrast, could be used to
@@ -120,7 +120,7 @@ classify an input sequence of any length.
 
 2.5 Task 4: Modifying the “Time Warping” RNN to Use a Convolution
 
-That’s all you have to do to get a C on the assignment. Now, to get up into A territory, the next modification that you will make is more substantial. In the final task, your goal is to see if you can get any more
+That’s all you have to do to get a C on the assignment. Now, to get up into A territory, the next modification that you will make is more substantial. In the final task, your goal is to see if you can get any more
 accuracy using a set of eight convolutional filters. The idea is simple. Rather an processing one character at
 a time, you will process ten characters at a time. That is, consider the sentence “This is my cool string”. You
 will process not the sequence of characters ‘T’, ‘h’, ‘i’, etc., but instead you will process the sequence of
